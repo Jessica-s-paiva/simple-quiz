@@ -1,18 +1,35 @@
 package com.curso.tecnologia.model;
 
+import java.util.ArrayList;
+
 public class Question {
 
-    private String theme;
+    private Long id;
     private String question;
-    private String answer;
+    private String theme;
+    private String response;
+
+    private Long questionAlternativeID;
+
+    private ArrayList<QuestionAlternative> questionAlternativeArrayList;
 
     public Question(){
 
     }
-    public Question(String theme, String question, String answer) {
+
+    public Question(String theme, String question, String response) {
         this.theme = theme;
         this.question = question;
-        this.answer = answer;
+        this.response = response;
+    }
+
+    public Question(Long id, String theme, String question, String response, Long questionAlternativeID, ArrayList<QuestionAlternative> questionAlternativeArrayList){
+        this.id = id;
+        this.theme = theme;
+        this.question = question;
+        this.response = response;
+        this.questionAlternativeArrayList = questionAlternativeArrayList;
+        this.questionAlternativeID = questionAlternativeID;
     }
 
     public String getTheme() {
@@ -31,20 +48,23 @@ public class Question {
         this.question = question;
     }
 
-    public String getAnswer() {
-        return answer;
+    public String getResponse() {
+        return response;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setResponse(String response) {
+        this.response = response;
     }
 
     @Override
     public String toString() {
-        return "Question{" +
-                "theme='" + theme + '\'' +
-                ", question='" + question + '\'' +
-                ", answer='" + answer + '\'' +
+        return "\nQuestion{" +
+                "\nid=" + id +
+                "\n, question='" + question + '\'' +
+                "\n, theme='" + theme + '\'' +
+                "\n, response='" + response + '\'' +
+                "\n, questionAlternativeID=" + questionAlternativeID +
+                "\n, questionAlternativeArrayList=" + questionAlternativeArrayList +
                 '}';
     }
 }
